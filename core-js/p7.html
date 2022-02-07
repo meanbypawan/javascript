@@ -1,0 +1,30 @@
+<script>
+  /*
+    bs > 10000
+     hra = 10%
+     ta = 5%
+     da = 3%
+    otherwise
+     hra = 5%
+     ta = 3% 
+  */
+  var bs = prompt("Enter basic salary");
+  var hra,ta,da,gs;
+  bs = parseInt(bs);
+  
+  if(bs > 10000){
+     hra = (bs*10)/100;
+     ta = (bs*5)/100;
+     da = (bs*3)/100;
+  }
+  else{
+    hra = (bs*5)/100;
+    ta = (bs*3)/100;
+  }
+  da ? document.write("<br>DA : "+da) : da = 0;
+  
+  document.write("<br>HRA : "+hra);
+  document.write("<br>TA : "+ta);
+  gs = bs + hra + ta + da;
+  document.write("<br>Gross : "+gs);
+</script>

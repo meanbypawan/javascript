@@ -1,0 +1,11 @@
+<script>
+  var addition = (a,b,callback)=>{
+    var z = a + b;
+    document.write("<br>Addition : "+z);
+    callback(z);
+  }
+  
+  addition(20,11,(n)=>{
+    n%2 ? document.write("<br>Odd") : document.write("<br>Even");
+  });
+</script>

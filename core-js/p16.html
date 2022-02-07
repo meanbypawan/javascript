@@ -1,0 +1,20 @@
+<script>
+  function Customer(){
+    this.setData = (id,cname,age)=>{
+      this.id = id;
+      this.cname = cname;
+      this.age = age;
+    }
+    this.showDetails = ()=>{
+      document.write(this.id+" "+this.cname+" "+this.age);
+    }
+    sayHello = ()=>{
+      document.write("<br> Hello Friends....");
+    }
+  }
+  
+  var c = new Customer();
+  c.setData(1,"Cheeku",24); // c-> id,name,age
+  c.showDetails();
+  c.sayHello();
+</script>

@@ -1,0 +1,12 @@
+<script>
+  var f1 = (a,b,callback)=>{
+    document.write("<br>a : "+a);
+    document.write("<br>b : "+b);
+    callback();
+  }
+  
+  //f1(20,10,function(){});
+  f1(20,10,()=>{
+    document.write("Callback called after f1()...");
+  });
+</script>

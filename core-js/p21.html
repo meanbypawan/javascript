@@ -1,0 +1,26 @@
+<script>
+var addition = (a,b,callback)=>{
+   var result = a + b;
+   document.write("<br>Result : "+result);
+   if(result < 0)
+     callback("Error : Result is negative",result);
+   else{
+     callback(null,result);
+   }  
+}
+
+var a = parseInt(prompt("enter 1st number"));
+var b = parseInt(prompt("enter 2nd number"));
+
+addition(a,b,(err,n)=>{
+  if(err)
+   document.write(err);
+  else
+  {
+     if(n%2)
+       document.write("<br>Odd..");
+     else
+       document.write("<br>Even..");  
+  }  
+});
+</script>

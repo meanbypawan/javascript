@@ -1,0 +1,38 @@
+<html>
+    <head>
+     <style>   
+     body{
+         padding:40px;
+         text-align: center;
+        }
+     input{
+         width:80%;
+         margin: auto;
+     }
+     .content{
+         width: 80%;
+         margin: auto;
+         height: 400px;
+         background-color: black;
+         color: white;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 20px;
+     }
+    </style>
+    </head>
+    <body>
+        <input id="text" onkeyup="getData()" type="text"/><br>
+        <br>
+        <div id="content" class="content"></div>
+    </body>
+    <script>
+        function getData(){
+         var inputObject = document.getElementById("text");
+         var data = inputObject.value;
+ 
+         var divObject = document.getElementById("content");
+
+         divObject.innerHTML = data;
+        }
+    </script>
+</html>

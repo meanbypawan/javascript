@@ -1,0 +1,44 @@
+<html>
+    <head>
+     <style>
+       .banner{
+           border: 1px solid black;
+       }
+       .body{
+           margin: 30px
+       }
+       button{
+           width: 100px;
+           background-color: blue;
+           color: white;
+       }
+       .banner{
+        transition: all .5s ease-in-out;
+       }
+     </style>
+    </head>
+    <body>
+        <div class="banner">
+            <img id="bannerImage" src="./images/android.png" width="100%" height="500px"/>
+        </div>
+        <div>
+          <div style="float: left;">
+              <button onclick="slideImage('<')"><</button>
+          </div>
+          <div style="float: right;">
+            <button onclick="slideImage('>')">></button>
+        </div>  
+        </div>
+        <script>
+            var imageArray = ["android.png","angular.png","c.png","cpp.png","db.png","ds.jpeg","java.png"];
+            var imageIndex = 0;
+            function slideImage(n){
+                var img = document.getElementById("bannerImage");
+                if(n == ">")
+                   img.src = "./images/"+imageArray[(++imageIndex)%7];
+                else if(n=="<")
+                  img.src = "./images/"+imageArray[(--imageIndex)%7];
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<script>
+  function Addition(a,b){
+    this.a = a;
+    this.b = b;
+    this.add = ()=>{
+      document.write("Addition : "+(this.a+this.b));
+    }
+  }
+  
+  
+  
+  var a = parseInt(prompt("enter 1st number"));
+  var b = parseInt(prompt("enter 2nd number"));
+  var obj = new Addition(a,b); // obj-->a=20, b=10
+  obj.add();
+</script>

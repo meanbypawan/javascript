@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+    <center>
+     <img id="main" 
+      onmouseover="changeImage()"
+      onmouseout = "originalImage()"
+      src="java.png" width="200px" heigth="200px"/>
+     <br>
+     <button onclick="increaseSize()">+</button>
+     <button onclick = "decreaseSize()">-</button>
+    </center>
+    <script>
+      function originalImage(){
+        var obj = document.getElementById("main");
+        obj.width = "200";
+        obj.height = "200";
+      }
+      function changeImage(){
+        var obj = document.getElementById("main");
+        obj.width = "400";
+        obj.height = "400";
+      }
+      function increaseSize(){
+        var obj = document.getElementById("main");
+        obj.width+=10
+        obj.heigth+=10;
+      }
+      function decreaseSize(){
+        var obj = document.getElementById("main");
+        if(obj.width>=100 && obj.height>=100){
+         obj.width-=10;
+         obj.height-=10;
+        }
+      }
+    </script>
+  </body>
+</html>

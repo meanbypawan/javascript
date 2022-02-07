@@ -1,0 +1,13 @@
+<script>
+  function Customer(id,cname,age){
+     this.id = id;
+     this.cname = cname;
+     this.age = age;
+     this.showDetails = ()=>{
+       document.write(this.id+" "+this.cname+" "+this.age);
+     }
+  }
+  
+  var c = new Customer(1,"Cheeku",24);
+  c.showDetails();
+</script>

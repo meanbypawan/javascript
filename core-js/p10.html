@@ -1,0 +1,16 @@
+<script>
+  var x = [
+    [10,20,30],
+    [40,50,60],
+    [70,80,90]
+  ];
+  
+  x[1].push(100);
+  x[2].splice(1,0,200);
+  for(rowIndex in x){
+     for(colIndex in x[rowIndex]){
+       document.writeln(x[rowIndex][colIndex]);
+     }
+     document.write("<br>");
+  }
+</script>

@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <input onkeyup="calculate()" id="txt1" type="text"/><br>
+        <input onkeyup="calculate()" id="txt2" type="text"/><br>
+        <input onkeyup="calculate()" id="txt3" type="text"/><br>
+        <br>
+        <p id="result"></p>
+        <script>
+            function calculate(){
+              var n1 = document.getElementById("txt1").value;
+              var n2 = document.getElementById("txt2").value;
+              var n3 = document.getElementById("txt3").value;         
+              if(n1=='')
+                n1 = 0;
+              if(n2 =='')
+               n2 = 0;
+              if(n3=='')
+               n3 = 0;   
+            
+             var result = parseFloat(n1)+parseFloat(n2)+parseFloat(n3);
+             document.getElementById("result").innerHTML = "Result : "+result;      
+            }
+        </script>
+    </body>
+</html>
