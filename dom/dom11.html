@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <form>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input onkeyup = "validateUsername()" type="text" id="username" class="form-control" autocomplete="off"/>
+                    <small id="usernameError"></small>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input onkeyup = "validatePassword()" type="password" id="password" class="form-control"/>
+                    <small id="passwordError"></small>
+                    <small id="showHidePass" onclick="showPassword()" class="text-primary">Show password</small>
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input onkeyup="validateMobile()" type="text" id="mobile" class="form-control"/>
+                    <small id="mobileError"></small>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input onkeyup="validateEmail()" type="email" id="email" class="form-control"/>
+                    <small id="emailError"></small>
+                </div>
+                <div class="form-group">
+                    <label>Experience</label>
+                    <select onchange="validateExpereince()" id="experience" class="form-control">
+                        <option value="0">select experience</option>
+                        <option value="1">Fresher</option>
+                        <option value="2">1-3 year</option>
+                        <option value="3">3-5 year</option>
+                        <option value="4">5-10 year</option>
+                        <option value="5">above 10 year</option>
+                    </select>
+                    <small id="experienceError"></small>
+                </div>
+                <div class="form-group">
+                    <button onclick="return validateData()" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            function showPassword(){
+                var showHidePass = document.getElementById("showHidePass");
+                var passwordObj = document.getElementById("password");
+                 
+                if(showHidePass.textContent=="Show password"){
+                 passwordObj.type="text";
+                 showHidePass.innerHTML = "Hide password"; 
+                }
+                else{
+                    passwordObj.type = "password";
+                    showHidePass.innerHTML = "Show password";
+                }
+            }
+            function validateExpereince(){
+                var status = true;
+                var exp = document.getElementById("experience").value;
+                var expError = document.getElementById("experienceError");
+
+                if(exp == "0"){
+                    status = false;
+                    expError.innerHTML = "please select experience";
+                    expError.style.color = "red";
+                }
+                else
+                 expError.innerHTML = "";
+                return status;
+            }
+            function validateEmail(){
+                var status = true;
+                //var regEx = '[a-z0-9]+@[a-z]+\.[a-z]{2,3}';
+                var regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+                var email  = document.getElementById("email").value;
+                var emailError = document.getElementById("emailError");
+                if(email == ""){
+                    status = false;
+                    emailError.innerHTML = "please enter email id";
+                    emailError.style.color = "red";
+                } 
+                else if(!regex.test(email)){
+                    status = false;
+                    emailError.innerHTML = "Invalid email id";
+                    emailError.style.color = "red";
+                }
+                else
+                 emailError.innerHTML = "";
+                return status;
+            }
+            function validateMobile(){
+                var status = true;
+                var mobile = document.getElementById("mobile").value;
+                var mobileError = document.getElementById("mobileError");
+                if(mobile == ""){
+                    status = false;
+                    mobileError.innerHTML = "please enter mobile number";
+                    mobileError.style.color = "red";
+                }
+                else if(isNaN(mobile)){
+                    status = false;
+                    mobileError.innerHTML = "Only digit allowed";
+                    mobileError.style.color = "red";
+                }
+                else if(mobile.length!=10){
+                    status = false;
+                    mobileError.innerHTML = "Mobile must contain 10 digit";
+                    mobileError.style.color = "red";
+                }
+                else
+                 mobileError.innerHTML = "";
+                return status;
+            }
+            function validateUsername(){
+              var status = true;  
+              var username = document.getElementById("username").value;
+              var usernameError = document.getElementById("usernameError");
+
+              if(username == ""){
+                  status = false;
+                  usernameError.innerHTML = "please enter username";
+                  usernameError.style.color = "red";
+              }
+              else
+               usernameError.innerHTML = "";
+               return status;
+            }
+
+            function validatePassword(){
+              var status = true;
+              var password = document.getElementById("password").value;
+              var passwordError = document.getElementById("passwordError");
+              if(password ==""){
+                  status = false;
+                  passwordError.innerHTML="please enter password";
+                  passwordError.style.color = "red";
+              }
+              else if(password.length<6 || password.length>10){
+                  status = false;
+                  passwordError.innerHTML = "password must be between 6-10";
+                  passwordError.style.color = "red";
+              }
+              else
+               passwordError.innerHTML = "";
+            }
+            function validateData(){
+                
+                var usernameStatus = validateUsername();
+                var passwordStatus = validatePassword();
+                var mobileStatus = validateMobile();
+                var emailStatus = validateEmail();
+                var expStatus = validateExpereince();
+                if(usernameStatus && passwordStatus && mobileStatus && emailStatus && expStatus)
+                  return true;
+                return false;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
