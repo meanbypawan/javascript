@@ -1,0 +1,40 @@
+<html>
+    <head>
+      <script>
+          function sendRequest(){
+              var xhttp = new XMLHttpRequest();
+              var api = "https://jsonplaceholder.typicode.com/posts";
+              xhttp.open("GET",api,true);
+              xhttp.send(); // Request send to the server
+
+              xhttp.onreadystatechange = function(){
+                  if(xhttp.readyState == 4 && xhttp.status == 200){
+                      var data = xhttp.responseText; // String
+                      // data = "[{},{}]" ==> [{},{}];
+                      data = JSON.parse(data);
+                      document.write("<table border='1' width='100%'>")
+                      document.write("<tr>");
+                      document.write("<td>Id</td>");
+                      document.write("<td>UserId</td>");
+                      document.write("<td>Title</td>");
+                      document.write("<td>Body</td>");  
+                      document.write("</tr>");
+                      for(post of data){
+                        document.write("<tr>");
+                        document.write("<td>"+post.id+"</td>");
+                        document.write("<td>"+post.userId+"</td>");
+                        document.write("<td>"+post.title+"</td>");
+                        document.write("<td>"+post.body+"</td>");  
+                        document.write("</tr>");
+                          
+                      }  
+                      document.write("</table>");  
+                  }
+              }
+          }
+      </script>
+    </head>
+    <body>
+        <button onclick="sendRequest()">Send Ajax Request</button>
+    </body>
+</html>
