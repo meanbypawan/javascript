@@ -10,4 +10,4 @@ p1.then(()=>{
 }).catch(()=>{
     console.log("Promise is rejected...");
 });
-
+0
