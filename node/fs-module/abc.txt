@@ -1,0 +1,5 @@
+Node.Js is javascript runtime envionrment
+Node.Js is built upon google v8 engine..
+In Node.Js , Javascript is every where
+Node.Js application highly scalable and super fast.
+Node.Js is recommend... to develop io intensice application.
