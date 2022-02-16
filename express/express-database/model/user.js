@@ -9,7 +9,7 @@ module.exports = class User{
         return new Promise((resolve,reject)=>{
            pool.getConnection((err,con)=>{
               if(!err){
-                let sql = "select * from user where email = ? and password = ?";
+                let sql = "select * from user where email = ? and password = md5(?)";
                 con.query(sql,[this.email,this.password],(err,result)=>{
                   if(err) reject(err);
                   else
@@ -26,7 +26,7 @@ module.exports = class User{
           pool.getConnection((err,con)=>{
               if(err) reject(err);
               else{
-                let sql = "insert into user(email,password,username) values(?,?,?)";  
+                let sql = "insert into user(email,password,username) values(?,md5(?),?)";  
                 con.query(sql,[this.email,this.password,this.username],(err,result)=>{
                   con.release();
                   if(err) reject(err);
@@ -38,3 +38,11 @@ module.exports = class User{
       });    
     }
 }
+
+
+
+
+
+
+
+

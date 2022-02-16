@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <%- include('../partial/_bootstrap_lib.ejs')%>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+    <body>
+        <%- include('../partial/_admin_user_navigation.ejs')%>
+        <div class="container mt-5">
+        <form action="/user/edit-product" method="POST">
+            <input type="hidden" name="id" value="<%=product.id%>"/>
+            <div class="form-group">
+                <lable>Name</lable>
+                <input value='<%=product.name%>' type="text" name="name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <lable>Price</lable>
+                <input value='<%=product.price%>' type="text" name="price" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <lable>Image</lable>
+                <input value="<%=product.imageUrl%>" type="text" name="imageUrl" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <lable>Description</lable>
+                <textarea name="description" class="form-control"><%=product.description%></textarea>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Update product</button>
+            </div>
+        </form>
+       </div>
+    </body>
+</html>

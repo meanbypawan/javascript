@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <%- include('../partial/_bootstrap_lib.ejs')%>
+        <link rel="stylesheet" href="/css/style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <%- include('../partial/_admin_user_navigation.ejs')%>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>S.no</th>
+                              <th>Image</th>
+                              <th>Name</th>
+                              <th>Price</th>
+                              <th>Description</th>
+                              <th>Edit</th>
+                              <th>Delete</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                         <%
+                          let sno = 1;
+                          for(product of productList)
+                          {
+                         %>
+                           <tr id="row<%=product.id%>">
+                               <td><%=sno++%></td>
+                               <td>
+                                   <img src="<%=product.imageUrl%>" width="100px" heigth="100px"/>
+                               </td>
+                               <td><%=product.name%></td>
+                               <td><%=product.price%></td>
+                               <td><%=product.description%></td>
+                               <td>
+                                  <a href="/user/edit-product/<%=product.id%>"> 
+                                   <button class="btn btn-primary">Edit</button>
+                                 </a> 
+                               </td>
+                               <td>
+                                 <button  onclick="deleteProduct('<%=product.id%>')" id="delete-button" class="btn btn-danger">Delete</button>
+                               </td>
+                           </tr> 
+                         <%}%>    
+                      </tbody>
+                      <script>
+                          function deleteProduct(productId){
+                            if(confirm('Are you sure ?')){  
+                                $.ajax({
+                                    url: '/user/delete-product/'+productId,
+                                    success: function(result){
+                                    $('#row'+productId).remove();
+                                    }
+                                });
+                            }
+                          }
+                      </script>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
